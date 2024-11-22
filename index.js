@@ -90,7 +90,7 @@ async function initializeInitialEnergyValue() {
 async function fetchDataAndStore() {
   try {
     console.log("Fetching and storing sensor data...");
-    const response = await axios.get("http://localhost:4000/api/sensordata");
+    const response = await axios.get("https://hackarena-backend.onrender.com/api/sensordata");
     const newData = response.data[0];
 
     // If no initial energy value has been set, set it to the current values
@@ -187,8 +187,8 @@ async function appendDataToFile(data, filePath) {
 }
 
 // Set intervals to initialize and fetch data every 10 minutes
-setInterval(initializeInitialEnergyValue, 10 * 60000);
-setInterval(fetchDataAndStore, 10 * 60000);
+setInterval(initializeInitialEnergyValue, 3 * 60000);
+setInterval(fetchDataAndStore, 3 * 60000);
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
